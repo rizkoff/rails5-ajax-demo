@@ -1,0 +1,20 @@
+        <tr id="post_<%= post.id %>">
+          <td>
+            <%= post.name %>
+          </td>
+          <td>
+            <%= post.title %>
+          </td>
+          <td>
+            <%= post.content %>
+          </td>
+          <td>
+            <%= link_to 'Show', post %>
+          </td>
+          <td>
+            <%= link_to 'Edit', edit_post_path(post) %>
+          </td>
+          <td>
+            <%= link_to 'Destroy', post, :method => :delete, :remote => true, :class=>'delete_post', :data => { :confirm => 'Are you sure?' } %>
+          </td>
+        </tr>

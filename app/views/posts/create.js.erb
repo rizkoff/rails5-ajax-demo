@@ -1,1 +1,12 @@
-$('#new_post').append("<h3><%= escape_javascript(@post.title) %></h3>").append("<%= escape_javascript(@post.content) %>");
+$(document).ready(function() {
+  $(document).on('ajax:success', function() {
+    //setTimeout(function(){
+      $('#post_<%= @post.id %>').css("background-color", "#FFFFFF");
+    //},2000); 
+  });
+  $('#new_post').remove();
+  $('#new_link').show();
+  $('.table tbody').append('<%= j render @post %>');
+  $('#post_<%= @post.id %>').css("background-color", "#BBFFBB"); //.delay(1000).hide().fadeIn(2000);
+
+});
