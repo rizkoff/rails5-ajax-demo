@@ -13,7 +13,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require activestorage
-//= require turbolinks
+//  require turbolinks
 //= require_tree .
 $(document).on("ajax:error", function(xhr, status, error) {
   console.log(status.responseText);
