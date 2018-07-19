@@ -1,0 +1,27 @@
+!!!
+%html
+  %head
+    %title Ujs5aBlog
+    = csrf_meta_tags
+    = csp_meta_tag
+    = stylesheet_link_tag    'application', media: 'all'
+    = javascript_include_tag 'application'
+    /= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
+    /= javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+    /:javascript
+    /  $(document).ready( function() {
+    /    $('.dropdown-toggle').dropdown();
+    /  });
+  %body
+    %nav.navbar.navbar-inverse
+      .container
+        .navbar-header
+          .navbar-brand= link_to 'UJS5a Blog', root_path
+        #navbar
+          %ul.nav.navbar-nav.pull-right
+
+    - flash.each do |name, msg|
+      .alert{:class => "alert-#{name}"}= content_tag :div, msg, id: "flash_#{name}"
+
+    .container
+      = yield
