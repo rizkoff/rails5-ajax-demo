@@ -1,1 +1,8 @@
 $('#new_link').hide().after('<%= j render("form", post: @post) %>');
+$('#new_post').on('ajax:beforeSend', function(){
+$('.table tbody').append('<tr id="post_tmp"><td>' + $('#post_name').val() + '</td><td>' + $('#post_title').val() + '</td><td>' + $('#post_content').val() + '</td></tr>').delay(4000);
+$('#post_tmp').css("background-color", "#BFB").delay(3000);
+
+}).on('ajax:error', function(){
+$('#post_tmp').css("background-color", "#d135a0");
+});

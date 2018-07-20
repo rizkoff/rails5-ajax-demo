@@ -24,6 +24,7 @@ class PostsController < ApplicationController
   # POST /posts
   # POST /posts.json
   def create
+    sleep 7
     @post = Post.new(post_params)
 
     respond_to do |format|
@@ -56,13 +57,14 @@ class PostsController < ApplicationController
   # DELETE /posts/1
   # DELETE /posts/1.json
   def destroy
+    sleep 7
+    raise "fuck" if @post.content.blank?
     @post.destroy
-    render json: @post
-#    respond_to do |format|
-#      format.html { redirect_to posts_url, notice: 'Post was successfully destroyed.' }
-#      format.json { head :no_content }
-#      format.js   { render :nothing => true }
-#    end
+    respond_to do |format|
+      format.html { redirect_to posts_url, notice: 'Post was successfully destroyed.' }
+      format.json { render json: @post }
+      format.js   { render :nothing => true }
+    end
   end
 
   private

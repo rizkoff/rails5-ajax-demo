@@ -1,4 +1,5 @@
 = form_with(model: post, remote: true, id: 'new_post') do |form|
+  = post.title
   - if post.errors.any?
     #error_explanation
       %h2
