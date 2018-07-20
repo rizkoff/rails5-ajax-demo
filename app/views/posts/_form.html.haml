@@ -1,13 +1,15 @@
-= form_with(model: post, remote: true, id: 'new_post') do |form|
-  = post.title
+= form_with(model: post, remote: true, id: "post_form_#{@post.uuid}") do |form|
   - if post.errors.any?
     #error_explanation
       %h2
         = pluralize(post.errors.count, "error")
-        prohibited this post from being saved:
+        prohibited this post # #{params[:post][:uuid]} from being saved ( #{post.uuid} // #{@post.uuid}):
       %ul
         - post.errors.full_messages.each do |message|
           %li= message
+  .field
+    = form.label :uuid
+    = form.text_field :uuid
   .field
     = form.label :name
     = form.text_field :name

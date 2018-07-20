@@ -1,19 +1,14 @@
-$('#new_post').remove();
+$("#post_form_<%= @post.uuid %>").hide();
 <% if @post.errors.blank? %>
-  $('#post_tmp').remove();
-  $('#new_link').show();
-  $('.table tbody').append('<%= j render @post %>');
+  $('#post_rec_<%= @post.uuid %>').remove();
+  $('#post_new_a').show();
+  $('#posts_t tbody').append('<%= j render @post %>');
   $('#post_<%= @post.id %>').css("background-color", "#FFF");
 <% else %>
-  $('#post_tmp').css("background-color", "#F00");
-  $('#new_link').after('<%= j render("form", post: @post) %>');
+  $('#post_rec_<%= @post.uuid %>').css("background-color", "#F00");
+  $('#post_rec_<%= @post.uuid %>').on('click', function(){
+    $("#post_form_<%= @post.uuid %>").show();
+  });
 <% end %>
-
-//$('#new_post').remove();
-//< % if @post.errors.blank? %>
-//  $('#new_link').show();
-//  $('.table tbody').append('< %= j render @post %>');
-//< % else %>
-//  $('#new_link').after('< %= j render("form", post: @post) %>');
-//< % end %>
-
+// $('#post_form_f0f6d696-66a3-4ae2-948a-b032a74ac17b input[type=submit]').val()
+// $('#post_form_f0f6d696-66a3-4ae2-948a-b032a74ac17b input#post_uuid').val()

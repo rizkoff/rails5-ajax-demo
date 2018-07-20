@@ -1,7 +1,7 @@
 <h1>Listing posts</h1>
 <div class="row">
   <div class="panel">
-    <table class="table">
+    <table class='table' id="posts_t">
       <thead>
       <tr>
         <th>Name</th>
@@ -21,5 +21,5 @@
   </div>
 </div>
 <br/>
-<%= link_to 'New Post', new_post_path, id: 'new_link', remote: true %>
+<%= link_to 'New Post', new_post_path, id: 'post_new_a', remote: true %>
 

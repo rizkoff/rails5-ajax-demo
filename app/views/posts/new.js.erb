@@ -1,8 +1,12 @@
-$('#new_link').hide().after('<%= j render("form", post: @post) %>');
-$('#new_post').on('ajax:beforeSend', function(){
-$('.table tbody').append('<tr id="post_tmp"><td>' + $('#post_name').val() + '</td><td>' + $('#post_title').val() + '</td><td>' + $('#post_content').val() + '</td></tr>').delay(4000);
-$('#post_tmp').css("background-color", "#BFB").delay(3000);
-
+$('#post_new_a').hide().after('<%= j render("form", post: @post) %>');
+$("#post_form_<%= @post.uuid %>").on('ajax:beforeSend', function(){
+  $("#post_form_<%= @post.uuid %>").hide();
+  $('#post_new_a').show();
+  $('#post_rec_<%= @post.uuid %>').remove();
+  //$('#posts_t tbody').append('< %= j render @post %>').delay(4000);
+  //$('#posts_t tbody').append('<tr id="post_rec_< %= @post.uuid %>"><td>< %= j @post.name %></td><td>< %= j @post.title %></td><td>< %= j @post.content %></td><td colspan=3>< %= j @post.uuid %></td></tr>').delay(4000);
+  $('#posts_t tbody').append('<tr id="post_rec_<%= @post.uuid %>"><td>' + $('#post_name').val() + '</td><td>' + $('#post_title').val() + '</td><td>' + $('#post_content').val() + '</td><td colspan=3>' + $('#post_uuid').val() + '</td></tr>').delay(4000);
+  $('#post_rec_<%= @post.uuid %>').css("background-color", "#BFB").delay(3000);
 }).on('ajax:error', function(){
-$('#post_tmp').css("background-color", "#d135a0");
+  $('#post_rec_<%= @post.uuid %>').css("background-color", "#d135a0");
 });
