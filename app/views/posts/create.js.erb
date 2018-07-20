@@ -1,14 +1,13 @@
-$("#post_form_<%= @post.uuid %>").hide();
+let uuid="<%= @post.uuid %>";
+$("#post_form_" + uuid).hide();
 <% if @post.errors.blank? %>
-  $('#post_rec_<%= @post.uuid %>').remove();
+  $('#post_rec_' + uuid).remove();
   $('#post_new_a').show();
   $('#posts_t tbody').append('<%= j render @post %>');
-  $('#post_<%= @post.id %>').css("background-color", "#FFF");
+  $('#post_' + uuid).css("background-color", "#FFF");
 <% else %>
-  $('#post_rec_<%= @post.uuid %>').css("background-color", "#F00");
-  $('#post_rec_<%= @post.uuid %>').on('click', function(){
-    $("#post_form_<%= @post.uuid %>").show();
+  $('#post_rec_' + uuid).css("background-color", "#F00");
+  $('#post_rec_' + uuid).on('click', function(){
+    $('#post_form_' + uuid).show();
   });
 <% end %>
-// $('#post_form_f0f6d696-66a3-4ae2-948a-b032a74ac17b input[type=submit]').val()
-// $('#post_form_f0f6d696-66a3-4ae2-948a-b032a74ac17b input#post_uuid').val()

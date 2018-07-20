@@ -4,7 +4,7 @@ $("#post_form_<%= @post.uuid %>").on('ajax:beforeSend', function(){
   uuid=$(form_id +' input#post_uuid').val();
   $('#post_new_a').show();
   $('#post_rec_<%= @post.uuid %>').remove();
-  $('#posts_t tbody').append('<tr id="post_rec_<%= @post.uuid %>"><td>' + $(form_id + ' input#post_name').val() + '</td><td>' + $(form_id + ' input#post_title').val() + '</td><td>' + $(form_id + ' textarea#post_content').val() + '</td><td colspan=3>' + $(form_id +' input#post_uuid').val() + '</td></tr>').delay(4000);
+  $('#posts_t tbody').append('<tr id="post_rec_<%= @post.uuid %>"><td>' + $(form_id + ' input#post_name').val() + '</td><td>' + $(form_id + ' input#post_title').val() + '</td><td>' + $(form_id + ' textarea#post_content').val() + '</td><td colspan=3>inserting:' + $(form_id +' input#post_uuid').val() + '</td></tr>').delay(4000);
   $('#post_rec_<%= @post.uuid %>').css("background-color", "#BFB").delay(3000);
   $("#post_form_<%= @post.uuid %>").hide();
 }).on('ajax:error', function(){
