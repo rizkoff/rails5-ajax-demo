@@ -1,24 +1,19 @@
 # README
+  
+This is demo app to learn js / ujs / ajax approaches, with or without jquery, with or without turbolinks, at rails.
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## TODOs:
 
-Things you may want to cover:
+* done: inserts & deletes; yet to finish: edits & show
 
-* Ruby version
+* learn to DRY-up & modularize js right way
 
-* System dependencies
+* for ajax crud, use (same?) partial from js; now it uses no partials
 
-* Configuration
+* json to use
 
-* Database creation
+* search functionality
 
-* Database initialization
+* DnD + ajax
 
-* How to run the test suite
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
