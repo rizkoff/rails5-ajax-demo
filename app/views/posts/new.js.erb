@@ -1,12 +1,15 @@
-$('#post_new_a').hide().after('<%= j render("form", post: @post) %>');
-$("#post_form_<%= @post.uuid %>").on('ajax:beforeSend', function(){
+let post_new_a=$('#post_new_a');
+let uuid='<%= @post.uuid %>';
+post_new_a.hide().after('<%= j render("form", post: @post) %>');
+$("#post_form_" + uuid).on('ajax:beforeSend', function(){
   form_id='#' + this.id;
-  uuid=$(form_id +' input#post_uuid').val();
-  $('#post_new_a').show();
-  $('#post_rec_<%= @post.uuid %>').remove();
-  $('#posts_t tbody').append('<tr id="post_rec_<%= @post.uuid %>"><td>' + $(form_id + ' input#post_name').val() + '</td><td>' + $(form_id + ' input#post_title').val() + '</td><td>' + $(form_id + ' textarea#post_content').val() + '</td><td colspan=3>inserting:' + $(form_id +' input#post_uuid').val() + '</td></tr>').delay(4000);
-  $('#post_rec_<%= @post.uuid %>').css("background-color", "#BFB").delay(3000);
-  $("#post_form_<%= @post.uuid %>").hide();
+  function inp(name){ return $(form_id + ' input#post_' + name).val(); }
+  function txt(name){ return $(form_id + ' textarea#post_' + name).val(); }
+  post_new_a.show();
+  $('#post_rec_'+uuid).remove();
+  $('#posts_t tbody').append('<tr id="post_rec_<%= @post.uuid %>"><td>' + inp('name') + '</td><td>' + inp('title') + '</td><td>' + txt('content') + '</td><td colspan=3>inserting:' + inp('uuid') + '</td></tr>').delay(4000);
+  $('#post_rec_'+uuid).css("background-color", "#BFB").delay(3000);
+  $("#post_form_"+uuid).hide();
 }).on('ajax:error', function(){
-  $('#post_rec_<%= @post.uuid %>').css("background-color", "#d135a0");
+  $('#post_rec_'+uuid).css("background-color", "#d135a0");
 });
