@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  descr: MyText
+  due: 2018-07-31
+  int: 1
+
+two:
+  title: MyString
+  descr: MyText
+  due: 2018-07-31
+  int: 1
